@@ -14,7 +14,7 @@ The project uses an Ardunio Micro (or Mini Pro, or Mega2650) with a 160x128 pixe
 * auto-starts a trip odo, and
 * auto-starts a journey odo (multiple trips on a single charge)
 
-The significance of the range chart feature is that, on a long drive you need to know at the outset if you have enough range to reach your destination. Then as you drive you can easily tell if the driving conditions match the initial estimate. 
+The significance of the range chart feature is that it makes it much easier to adjust your driving to achieve a desired range.
 
 ### For example
 Say you need to drive 75 km in your 2011 Leafster. You charge to "100%" which gives you 82km range (not that bad for an old gen 1.0 Leaf). The guess-o-meter would be saying "103km" which would be a bold-faced lie. 
@@ -23,6 +23,6 @@ So you head off, stopping at a few places along the way to collect vital supplie
 
 On the other hand - if you see that your driving above the initial estimate line then you know you have plenty of capacity to spare so can afford to drive faster.
 
-###Limitaions
+### Limitaions
 
-This range estimate is not very sophisticated. It doesn't know about terrain, weather, drivign condition, car weight, etc. The key benefits are; (a) it's not stupidly optomistic at the start of a drive, and (b) the range chart allows you to easily adjust your driving behaviour to achieve a desired range.
+This range estimate is not very sophisticated. It doesn't know about terrain, weather, driving conditions, car weight, etc. The key benefits are; (a) it's not stupidly optomistic at the start of a drive, and (b) the range chart allows you to easily adjust your driving behaviour to achieve a desired range.
