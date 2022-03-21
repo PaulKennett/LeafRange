@@ -41,3 +41,10 @@ This range estimate is not very sophisticated. It doesn't know about terrain, we
 10. 3D printed project box DRAFT (https://www.tinkercad.com/things/lRlt66oEZCM-leafrange-box-v16 - I'll provide a better link soon}
 11. Project "motherboard" DRAFT (for Mega2650 only at this stage https://oshwlab.com/PaulKennett/LeafRange)
 12. OBD2 plug (like this https://www.aliexpress.com/item/32865761651.html)
+
+## Todo
+- layout an updated motherboard for the Micro/Mini Pro
+- redo the project box for the new Micro motherboard
+- create a nice wiring diagram (with photos)
+- add images to this page 
+- test the code works on 2013+ Gen 1.1 Leafs
