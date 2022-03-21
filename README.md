@@ -1,9 +1,7 @@
 # LeafRange
 A better range "guess-o-meter" for early Nissan Leaf cars
 
-![Leaf dash with LeafRange display installed](https://www.kennett.co.nz/people/paul/leaf/LeafRange_2022-02-21-600x375.jpg)
-
-![local verion](/../main/LeafRange_2022-02-21-600x375.jpg)
+![LeafRange display installed](/../main/LeafRange_2022-02-21-600x375.jpg)
 
 This project follows on from (and compliments) my earlier [LeafSOCdisplay](https://github.com/PaulKennett/LeafSOCdisplay) project, which grew from [CANa Display for Nissan LEAF](https://ev-olution.yolasite.com/CANa.php) © Copyright EV-OLUTION
 
