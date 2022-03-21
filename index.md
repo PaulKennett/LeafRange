@@ -18,7 +18,13 @@ The significance of the range chart feature is that, on a long drive you need to
 
 ### For example 
 
-Say you need to drive 75 km in your 2011 Leafster. You charge to "100%" which gives you 82km range (not that bad for an old gen 1.0 Leaf). The guess-o-meter would be saying "103km" which would be a bold-faced lie. So you head off, stopping at a few places along the way to collect vital supplies (ice creams, etc). About half way there you notice that the chart is showing you're actually trending below the initial estimate line - meaning you should start to ease off the speed a little so that you won't run short. On the other hand - if you see that your driving above the initial estimate line then you know you have plenty of capacity to spare so can afford to drive faster. Limitaions: this range estimate is not very sophisticated. It doesn't know about terrain, weather, drivign condition, car weight, etc. The key benefits are; (a) it's not stupidly optomistic at the start of a drive, and (b) the range chart allows you to easily adjust your driving behaviour to achieve a desired range.
+Say you need to drive 75 km in your 2011 Leafster. You charge to "100%" which my gadget says gives you 82km range (not that bad for an old gen 1.0 Leaf). The guess-o-meter would be saying "103km" which would be a bold-faced lie. 
+
+So you head off, stopping at a few places along the way to collect vital supplies (ice creams, etc). About half way there you notice that the chart is showing you're actually trending _below_ the initial estimate line - meaning you should start to ease off the speed a little so that you won't run short. 
+
+On the other hand - if you see that you're driving _above_ the initial estimate line then you know you have plenty of capacity to spare so can afford to drive faster. 
+
+Limitaions: this range estimate is not very sophisticated. It doesn't know about terrain, weather, drivign condition, car weight, etc. The key benefits are; (a) it's not stupidly optomistic at the start of a drive, and (b) the range chart allows you to easily adjust your driving behaviour to achieve a desired range.
 
 
 
