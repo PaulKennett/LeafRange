@@ -34,6 +34,6 @@ This range estimate is not very sophisticated. It doesn't know about terrain, we
 
 
 ---
-Notes for just me, while I'm learing how to use GitHub Pages:
+Notes for just me, while I'm learning how to use GitHub Pages:
 - [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 - [Page documentation](https://docs.github.com/categories/github-pages-basics/)
