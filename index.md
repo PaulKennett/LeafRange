@@ -14,7 +14,7 @@ Features:
 - auto-starts a trip odo, and
 - auto-starts a journey odo (multiple trips on a single charge)
 
-The significance of the range **chart** feature is that, on a long drive you need to know at the outset if you have enough range to reach your destination. Then as you - drive you can easily tell if the driving conditions match the initial estimate. This gives you a much better understanding of your range as you go.
+The significance of the range chart feature is that it makes it much easier to adjust your driving to achieve a desired range.
 
 ### For example 
 
@@ -34,7 +34,6 @@ This range estimate is not very sophisticated. It doesn't know about terrain, we
 
 
 ---
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-
-[Page documentation](https://docs.github.com/categories/github-pages-basics/)
+Notes for just me, while I'm learing how to use GitHub Pages:
+- [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+- [Page documentation](https://docs.github.com/categories/github-pages-basics/)
