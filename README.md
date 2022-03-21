@@ -1,7 +1,7 @@
 # LeafRange
 A better range "guess-o-meter" for early Nissan Leaf cars
 
-This project follows from my earlier [LeafSOCdisplay project](https://github.com/PaulKennett/LeafSOCdisplay), which grew from [CANa Display for Nissan LEAF](https://ev-olution.yolasite.com/CANa.php) © Copyright EV-OLUTION
+This project follows from my earlier [LeafSOCdisplay](https://github.com/PaulKennett/LeafSOCdisplay) project, which grew from [CANa Display for Nissan LEAF](https://ev-olution.yolasite.com/CANa.php) © Copyright EV-OLUTION
 
 The project uses an Ardunio Micro (or Mini Pro, or Mega2650) with a 160x128 pixel TFT display and a MCP2515 CAN-bus module. The display is mounted in a 3D printed frame that fits *inside* the main dash unit and covers the old range estimate (ie., the "guess-o-meter") with a less-wrong range based on battery capacity and temperature.
 
