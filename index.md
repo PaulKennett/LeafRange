@@ -29,9 +29,8 @@ Limitaions: this range estimate is not very sophisticated. It doesn't know about
 
 
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Markdown notes - leaving these here while I learn how to do this
 
 ```markdown
 Syntax highlighted code block
