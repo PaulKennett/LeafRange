@@ -40,4 +40,4 @@ This range estimate is not very sophisticated. It doesn't know about terrain, we
 9. 3D printed frame for the display (https://www.myminifactory.com/object/3d-print-nissan-leaf-range-graph-display-154555)
 10. 3D printed project box DRAFT (https://www.tinkercad.com/things/lRlt66oEZCM-leafrange-box-v16 - I'll provide a better link soon}
 11. Project "motherboard" DRAFT (for Mega2650 only at this stage https://oshwlab.com/PaulKennett/LeafRange)
-12. OBD2 plug
+12. OBD2 plug (like this https://www.aliexpress.com/item/32865761651.html)
