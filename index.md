@@ -14,7 +14,7 @@ Features:
 - auto-starts a trip odo, and
 - auto-starts a journey odo (multiple trips on a single charge)
 
-The significance of the range chart feature is that, on a long drive you need to know at the outset if you have enough range to reach your destination. Then as you - drive you can easily tell if the driving conditions match the initial estimate.
+The significance of the range **chart** feature is that, on a long drive you need to know at the outset if you have enough range to reach your destination. Then as you - drive you can easily tell if the driving conditions match the initial estimate. This gives you a much better understanding of your range as you go.
 
 ### For example 
 
@@ -24,13 +24,18 @@ So you head off, stopping at a few places along the way to collect vital supplie
 
 On the other hand - if you see that you're driving _above_ the initial estimate line then you know you have plenty of capacity to spare so can afford to drive faster. 
 
-Limitaions: this range estimate is not very sophisticated. It doesn't know about terrain, weather, drivign condition, car weight, etc. The key benefits are; (a) it's not stupidly optomistic at the start of a drive, and (b) the range chart allows you to easily adjust your driving behaviour to achieve a desired range.
+Typically you'll be driving on known terrain so you should be able to factor in the terrain as you go. If driving over a big hill you're range plot will dip low as you up the hill then swing back up to the initial prediction on the way down the hill.
+
+### Limitaions
+
+This range estimate is not very sophisticated. It doesn't know about terrain, weather, driving condition, car weight, etc. The key benefits are; (a) it's not stupidly optomistic at the start of a drive, and (b) the range chart allows you to easily adjust your driving behaviour to achieve a desired range.
 
 
 
 
 
-Markdown notes - leaving these here while I learn how to do this
+
+Leaving these instruction here while I learn how to do this
 
 ```markdown
 Syntax highlighted code block
