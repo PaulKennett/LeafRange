@@ -25,7 +25,7 @@ So you head off, stopping at a few places along the way (my display saves range 
 
 On the other hand - if you see that you're driving _above_ the initial estimate line then you know you have plenty of capacity to spare so can afford to drive faster.
 
-### Limitaions
+### Limitations
 
 This range estimate is not very sophisticated. It doesn't know about terrain, weather, driving conditions, car weight, etc. The key benefits are; (a) it's not stupidly optomistic at the start of a drive, and (b) the range chart allows you to easily adjust your driving behaviour to achieve a desired range.
 
