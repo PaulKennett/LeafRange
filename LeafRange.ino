@@ -1,5 +1,5 @@
 // ================================================
-// Paul Kennett, 2022
+// LeadfRange by Paul Kennett, 2022
 /*
   Started from "CANa Display for Nissan LEAF"  https://ev-olution.yolasite.com/CANa.php © Copyright EV-OLUTION
   Modified by Paul Kennett to talk to a 128x160 TFT dsiplay and added Range functions.
@@ -8,13 +8,19 @@
   The MCP2515 CAN module is connected to Vehicle-CAN ("Car-CAN") on the OBD2 socket
   See https://paulkennett.github.io/LeafRange/ for full project details
 
+  v101 31 Mar 2022  Fixing "Charging mode while driving
+  v101 31 Mar 2022  Fixing bugs in the Charging mode
+  v100 30 Mar 2022  starting to work on Charging mode feature
+  v88  25 Mar 2022  replacing range_error with range + journey_odo on x axis
+  v87  24 Mar 2022  tweaked the range error UI
+  v86  23 Mar 2022  tweaked some colours
   v86  20 Mar 2022  optimizing code to fit into the Micro. It works!
   v85  19 Mar 2022  tidying up
 */
 
 #define NAME    "LeafRange"
-#define VERSION "Version 86"
-#define DATE    "20 Mar 2022"
+#define VERSION "Version 102"
+#define DATE    "31 Mar 2022"
 #define AUTHOR  "Paul Kennett"
 
 #ifdef __AVR_ATmega2560__       // Debug mode only works on the Mega2650 board. The Micro and Mini don't haven enough program memory
@@ -30,7 +36,7 @@ bool debug_mode = false;        // Serial port debug verbosity. Turn ON by chang
 
 #define BLACK         0x0000
 #define RED           0x001F
-#define ORANGE        0x031F
+#define ORANGE        0x041F
 #define GREEN         0x07E0
 #define YELLOW        0x07FF
 #define LIGHT_YELLOW  0x479C
@@ -103,7 +109,9 @@ byte raw_battery_pack_temp;    // raw battery pack temperature
 // Some nomenclature:
 // A "trip" (or "leg") means: turn the car on, do some stuff (or not), then turn the car off
 // A "journey" is made up of one or more trips/legs. A journey auto-starts when you start the car after the car has been charged
-bool first_time = true;        // used to indicate first time through the main display loop
+bool first_time = true;        // used to indicate first time through the main display loop (for driving behaviour)
+bool second_time = false;      // used to indicate second time through the main display loop (used for charging behaviour)
+bool charging = false;         // true when charing
 int range;                     // Range estimate
 int range_start;               // Range at start of this journey
 int range_error;               // the difference between the initial range estimate and the current range + odo
@@ -195,7 +203,6 @@ void setup() {
   //  tft.fillScreen(BLACK);
   tft.setCursor(44, 155); tft.print("Loading...");
 
-
 #ifdef __AVR_ATmega2560__
   if (debug_mode) {
     Serial.print("===================================== end setup loop\r\n\r\n");
@@ -250,6 +257,41 @@ void loop() {
     range = km_per_kWh * ((raw_gids - GIDS_TURTLE) * WH_PER_GID) / 1000;
 
 
+
+    // ----------------------------------------------------------------------------------
+    if (second_time) {                    // if this is the second time, testing for charging ode
+      if (raw_gids > raw_gids2) { // If second raw_gids has increased then it must be charging
+        charging = true;
+        range_start = km_per_kWh * ((EEPROM.read(EEPROM_ADDR_DATA_START + 1) - GIDS_TURTLE) * WH_PER_GID) / 1000;
+        print_static_drive_elements();
+
+        // Replace "50km" on x axis with "Minutes"
+        tft.fillRect(PLOT_LEFT + 4, plot_bottom + 1, 88, 11, BLACK);
+        tft.setFont();
+        tft.setTextSize(1);
+        tft.setTextColor(GREEN);
+        tft.setCursor(PLOT_LEFT + 31, plot_bottom + 4);  tft.print("Minutes");
+
+        // blank out Trip and Journey od and replace with "Charging"
+        tft.fillRect(0, 120, DISPLAY_WIDTH + 1, 40, BLACK);
+        tft.drawFastVLine (PLOT_LEFT + 50, plot_bottom - 1, 3, LIGHTER_GREY); // 50 Minute tick mark
+        // tft.setFont(&Logisoso_reduced11pt7b);
+        // tft.setTextColor(GREEN);
+        // tft.setCursor(36, 144);  tft.print("Charging");
+
+
+        // data_pointer = EEPROM_ADDR_DATA_START;
+        // write_unsigned_int_to_eeprom(EEPROM_ADDR_DATA, data_pointer);
+        // EEPROM.update(data_pointer, 0); // reset first journey_odo value in EEPROM to zero
+        // journey_odo_last = 0;
+        // journey_odo = 0;
+        // EEPROM.update(data_pointer + 1, (byte)raw_gids);
+        // eeprom_gids_last = raw_gids;
+      }
+        second_time = false;
+    } // end of "second time only" tasks
+    // ----------------------------------------------------------------------------------
+
     // ----------------------------------------------------------------------------------
     // "first time only" tasks: draw a dashed line and plot stored data
     if (first_time) {                    // if this is the first time then save raw_gids to EEPROM max_gids array
@@ -281,22 +323,41 @@ void loop() {
       plot_saved_data(); // plot data from EEPROM data array
 
       first_time = false;
+      second_time = true; //
     } // end of "first time only" tasks
     // ----------------------------------------------------------------------------------
+
+
+    if (raw_gids < raw_gids2) { // If raw_gids has decreased then it must be not charging
+      charging = false;
+      second_time = false; // NOT SURE ABOUT THIS
+    }
 
 #ifdef __AVR_ATmega2560__
     if (debug_mode) {
       sprint_display_update_data();
     }
 #endif
-    int y = plot_bottom - (range * scale_y) - 1;
-    tft.fillRect(PLOT_LEFT + journey_odo - 1, y - 1, 3, 3, YELLOW);     // plot new yellow range estimate "dot"
     print_range(range);
-    range_error = (range + journey_odo) - range_start;
-    print_range_error(range_error);
     print_battery_pack_temp(battery_pack_temp);
-    print_trip_odo(odo_km);
-    print_journey_odo(journey_odo);
+    int y = plot_bottom - (range * scale_y) - 1;
+    if (charging) {
+      sprint_time_since_boot();
+      tft.fillRect(PLOT_LEFT + run_minutes - 1, y - 1, 3, 3, GREEN);     // plot new green range estimate "dot" whilst charging
+      tft.setFont();
+      tft.setTextSize(1);
+      tft.setTextColor(LIGHTER_GREY);
+      tft.fillRect(0, 150, 128, 10, BLACK);
+      tft.setCursor(0, 151);  tft.print(raw_gids);
+      tft.setCursor(30, 151);  tft.print(PLOT_LEFT + run_minutes - 1);
+    } else {
+      tft.fillRect(PLOT_LEFT + journey_odo - 1, y - 1, 3, 3, YELLOW);     // plot new yellow range estimate "dot" whilst driving
+      // range_error = (range + journey_odo) - range_start;
+      // print_range_error(range_error);
+      print_odo_plus_range_on_x_axis(range + journey_odo);
+      print_trip_odo(odo_km);
+      print_journey_odo(journey_odo);
+    }
 #ifdef __AVR_ATmega2560__
     if (debug_mode) {
       //   print_info_message(); // print some data for testing
@@ -378,8 +439,8 @@ void print_static_drive_elements() {
   tft.setCursor(0, 155);  tft.print("Journey");
   tft.setCursor(103, 155);  tft.print("km");
   // y axes and lables
-  tft.drawFastHLine (PLOT_LEFT - 1, plot_top, 3, LIGHTER_GREY);         // 100% tick mark
-  tft.drawFastHLine (PLOT_LEFT - 1, plot_middle, 3, LIGHTER_GREY);      // 50% tick mark
+  tft.drawFastHLine (PLOT_LEFT - 1, plot_top, 3, LIGHTER_GREY);         // 100km Range tick mark
+  tft.drawFastHLine (PLOT_LEFT - 1, plot_middle, 3, LIGHTER_GREY);      // 50km Range tick mark
   tft.drawFastHLine (PLOT_LEFT - 1, plot_bottom, plot_width + 1, LIGHTER_GREY);
   tft.setFont();
   tft.setTextColor(LIGHTER_GREY);
@@ -389,8 +450,8 @@ void print_static_drive_elements() {
   tft.setCursor(12, plot_bottom - FONT_HALF_HEIGHT);  tft.print("0");
   // x axes and lables
   tft.drawFastVLine (PLOT_LEFT , plot_top - 6, plot_height + 8, LIGHTER_GREY); //
-  tft.drawFastVLine (PLOT_LEFT + 50, plot_bottom - 1, 3, LIGHTER_GREY); // 50km tick mark
-  tft.drawFastVLine (PLOT_LEFT + 100, plot_bottom - 1, 3, LIGHTER_GREY); //100km tick mark
+  tft.drawFastVLine (PLOT_LEFT + 50, plot_bottom - 1, 3, LIGHTER_GREY); // 50km travelled tick mark
+  tft.drawFastVLine (PLOT_LEFT + 100, plot_bottom - 1, 3, LIGHTER_GREY); //100km teavelled tick mark
   tft.setCursor(PLOT_LEFT - 2, plot_bottom + 4);  tft.print("0km");
   tft.setCursor(PLOT_LEFT + 50 - 5, plot_bottom + 4);  tft.print("50km");
   tft.setCursor(PLOT_LEFT + 100 - 9, plot_bottom + 4);  tft.print("100");
@@ -456,53 +517,90 @@ void print_range(int range) {
 }
 
 
-void print_range_error(int error) {
+void print_odo_plus_range_on_x_axis(int x) {
+  tft.setFont();
+  tft.setTextSize(1);
+  tft.setTextColor(LIGHT_YELLOW);
+  tft.fillRect(PLOT_LEFT + x - 8, plot_bottom + 1, 18, 11, BLACK);
+  //tft.drawRect(PLOT_LEFT + x - 8, plot_bottom + 1, 18, 11, RED);
+  tft.drawFastVLine (PLOT_LEFT + x, plot_bottom + 1, 2, YELLOW); // 50km travelled tick mark
+  if (x < 100) {
+    tft.setCursor(PLOT_LEFT + x - 5, plot_bottom + 4);
+  } else {
+    tft.setCursor(PLOT_LEFT + x - 8, plot_bottom + 4);
+  }
+  tft.print(x);
+}
+
+/*
+  void print_range_error(int error) {
   tft.setFont(&Logisoso_reduced11pt7b);
-  tft.setTextColor(GREY);
-  tft.fillRect(89, 51, 30, 37, BLACK);
-  //    tft.fillRect(106, 91, 23, 18, BLACK);
-  //    tft.drawRect(89, 51, 30, 37, RED);
-  //    tft.drawRect(106, 91, 23, 18, RED);
-  tft.drawTriangle(119, 64, 127, 64, 123, 53, LIGHT_GREY);
-#ifdef __AVR_ATmega2560__
+  tft.fillRect(89, 50, 30, 18, BLACK);
+  #ifdef __AVR_ATmega2560__
   if (debug_mode) {
     Serial.print("| range_error         "); Serial.print(error); Serial.println();
   }
-#endif
-  if (error < -6) {
-    tft.setTextColor(ORANGE);
-    tft.drawTriangle(119, 64, 127, 64, 123, 53, ORANGE);
-  }
-  if (error > 0) {
+  #endif
+  if (error > 9) {
     tft.setTextColor(GREEN);
+    tft.setCursor(97, 66);
+    tft.drawRect(89, 59, 8, 2, GREEN);
+    tft.drawRect(92, 55, 2, 10, GREEN);
+    tft.drawTriangle(119, 64, 127, 64, 123, 53, GREEN);
+  } else if (error < 9 && error > 2) {
+    tft.setTextColor(GREEN);
+    tft.setCursor(108, 66);
+    tft.drawRect(99, 59, 8, 2, GREEN);
+    tft.drawRect(102, 55, 2, 10, GREEN);
     tft.drawTriangle(119, 64, 127, 64, 123, 53, GREEN);
   }
-  tft.setCursor(97, 66);
+  if (error < -1) {
+    tft.setTextColor(LIGHTER_GREY);
+    tft.setCursor(97, 66);
+    tft.drawTriangle(119, 64, 127, 64, 123, 53, LIGHTER_GREY);
+  }
+  if (error < -5) {
+    tft.setTextColor(ORANGE);
+    tft.setCursor(97, 66);
+    tft.drawTriangle(119, 64, 127, 64, 123, 53, ORANGE);
+  }
   if (error < -9) {
-    tft.setCursor(88, 66);
+    tft.setTextColor(RED);
+    tft.setCursor(87, 66);
+    tft.drawTriangle(119, 64, 127, 64, 123, 53, RED);
   }
   tft.print(error);
-}
-
+  }
+*/
 
 void print_battery_pack_temp(int temperature) {
+  tft.fillRect(98, 54, 20, 18, BLACK);
   tft.setFont(&Logisoso_reduced11pt7b);
-  if (temperature > 34) {
-    tft.setTextColor(RED);
-  } else if (temperature > 29) {
+  tft.setTextColor(RED);
+  tft.setCursor(97, 70);
+  if (temperature < 35) {
     tft.setTextColor(ORANGE);
-  } else if (temperature > 26) {
-    tft.setTextColor(LIGHTEST_GREY);
-  } else if (temperature > 18) {
-    tft.setTextColor(LIGHT_GREY);
-  }  else if (temperature > 12) {
-    tft.setTextColor(CYAN2);  // was CYAN
-  } else {
+  }
+  if (temperature < 30) {
+    tft.setTextColor(BLACK);
+  }
+  if (temperature < 13) {
     tft.setTextColor(LIGHT_BLUE);
   }
-  tft.setCursor(97, 87);
+  if (temperature < 8) {
+    tft.setTextColor(CYAN);  // was CYAN
+    tft.setCursor(107, 70);
+  }
+  if (temperature < 0) {
+    tft.setTextColor(WHITE);
+    tft.setCursor(97, 70);
+  }
+  if (temperature < -9) {
+    tft.setTextColor(WHITE);
+    tft.setCursor(87, 70);
+  }
   tft.print(temperature);
-  tft.setCursor(119, 87);
+  tft.setCursor(119, 70);
   tft.print("C");
 }
 
@@ -595,18 +693,20 @@ void push_button_format_eeprom(int pin) {
 }
 
 
-#ifdef __AVR_ATmega2560__
 void sprint_time_since_boot() {
   all_seconds = millis() / 1000;
   run_hours = all_seconds / 3600;
   secs_remaining = all_seconds % 3600;
   run_minutes = secs_remaining / 60;
   run_seconds = secs_remaining % 60;
+#ifdef __AVR_ATmega2560__
   char buf[33];  //Warning to self: if buf[?] is too small then Arduino board hangs!
   sprintf(buf, "Elapsed time         [%02d:%02d:%02d]", run_hours, run_minutes, run_seconds);
   Serial.println(buf);
+#endif
 }
 
+#ifdef __AVR_ATmega2560__
 void sprint_setup_data() {
   Serial.println("\r\n\r\n====================================================");
   Serial.println(NAME" by "AUTHOR", "DATE", "VERSION);
