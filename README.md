@@ -47,6 +47,5 @@ This range estimate is not very sophisticated. It doesn't know about terrain, we
 
 
 ## Todo
-- add images to this page 
 - test the code works on 2013+ Gen 1.1 Leafs
 - get a better photo of it (in daylight)
