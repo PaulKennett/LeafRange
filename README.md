@@ -11,10 +11,9 @@ The project uses an Ardunio Micro (or Mini Pro, or Mega2650) with a 160x128 pixe
 
 * a better range estimate in large freindly numerals (this estimate is not stupidly optomistic at the start of the drive)
 * range chart that shows how well the estiimate matches reality (stores jouurney data in EEPROM over multiple drives)
-* provides the difference between initial range estimate and current estimate plus distance driven
-* shows battery pack temperature in Centigrate (more understandable than the temp "bars") 
-* auto-starts a trip odo, and
+* shows battery pack temperature in Centigrate (more understandable than the temp "bars") when the battery is cold or hot
 * auto-starts a journey odo (multiple trips on a single charge)
+* range calculation factors in: battery State of Charge, battery State of Health, and battery temperature
 
 The significance of the range chart feature is that it makes it much easier to adjust your driving to achieve a desired range.
 
