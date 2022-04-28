@@ -13,7 +13,7 @@ The project uses an Ardunio Micro (or Mini Pro, or Mega2650) with a 160x128 pixe
 * range chart that shows how well the estiimate matches reality (stores jouurney data in EEPROM over multiple drives)
 * shows battery pack temperature in Centigrate (more understandable than the temp "bars") when the battery is cold or hot
 * auto-starts a journey odo (multiple trips on a single charge)
-* range calculation factors in: battery State of Charge, battery State of Health, and battery temperature
+* range calculation factors in: battery State of Charge, battery State of Health, and battery temperature (see https://github.com/PaulKennett/LeafRange/wiki/Notes}
 
 The significance of the range chart feature is that it makes it much easier to adjust your driving to achieve a desired range.
 
@@ -47,5 +47,4 @@ This range estimate is not very sophisticated. It doesn't know about terrain, we
 
 
 ## Todo
-- test the code works on 2013+ Gen 1.1 Leafs
-- get a better photo of it (in daylight)
+- see the Wiki Todo page https://github.com/PaulKennett/LeafRange/wiki/Todo
