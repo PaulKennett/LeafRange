@@ -41,13 +41,13 @@ This range estimate is not very sophisticated. It doesn't know about terrain, we
 8. Male DC3 10 Pin 2x5Pin Right Angle Double Row Pitch 2.54mm (https://www.aliexpress.com/item/32945804425.html)
 9. 3D printed frame for the display (https://www.myminifactory.com/object/3d-print-nissan-leaf-range-graph-display-154555)
 10. 3D printed project box DRAFT (https://www.tinkercad.com/things/lRlt66oEZCM-leafrange-box-v16 - I'll provide a better link soon}
-11. Project "motherboard" DRAFT (for Mega2650 only at this stage https://oshwlab.com/PaulKennett/LeafRange)
-12. OBD2 plug (like this https://www.aliexpress.com/item/32865761651.html)
+11. Main motherboard PCB for a Pro Micro or Pro Mini Arduino (Gerber file provided above - you could use https://jlcpcb.com/ to make them)
+12. Level shifter PCB (Gerber file provided above - you could use https://jlcpcb.com/ to make them)
+13. OBD2 plug (like this https://www.aliexpress.com/item/32865761651.html)
+
+
 
 ## Todo
-- layout an updated motherboard for the Micro/Mini Pro
-- redo the project box for the new Micro motherboard
-- create a nice wiring diagram (with photos)
 - add images to this page 
 - test the code works on 2013+ Gen 1.1 Leafs
 - get a better photo of it (in daylight)
