@@ -7,6 +7,10 @@ This project follows on from (and compliments) my earlier [LeafSOCdisplay](https
 
 The project uses an Ardunio Micro (or Mini Pro, or Mega2650) with a 160x128 pixel TFT display and a MCP2515 CAN-bus module. The display is mounted in a 3D printed frame that fits *inside* the main dash unit and covers the old range estimate (ie., the "guess-o-meter") with a less-wrong range based on battery capacity and temperature.
 
+YouTube drive demo: https://www.youtube.com/watch?v=xt2o3SWRRq8
+
+YouTube hardware show & tell: https://www.youtube.com/watch?v=k4QYvayp_lU
+
 ## Features
 
 * a better range estimate in large freindly numerals (this estimate is not stupidly optomistic at the start of the drive)
