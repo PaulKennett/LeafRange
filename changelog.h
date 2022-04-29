@@ -13,7 +13,31 @@ on "CANa Display for Nissan LEAF"  https://ev-olution.yolasite.com/CANa.php
   Modified by Paul Kennett October 2019 to talk to a standard/cheap 128x64 OLED dsiplay.
   See also http://www.myonlinediary.com/index.php/Energy/SOCDisplay for my project page
 
-  v85  19 Mar 2022  tidying up
+  v113 25 Apr 2022  moving Odo test display section off to a function
+  v112 19 Apr 2022  Fixing temperature display bug
+  v111 18 Apr 2022  Aaargh! Why doesn't the odo reading in Jodene's 2014 Leaf work anymore?!?
+  v111 17 Apr 2022  moving counter_pointer in EEPROM to location 4 (and 5) to see if that fixes new odo bug
+  v110 16 Apr 2022  fixing bugs produced yesterday
+  v109 15 Apr 2022  fixing bugs during drive to Tauranga in Gen 1.1 Leaf
+  v108 10 Apr 2022  trying to fix charge/drive mode switching
+  v107 10 Apr 2022  watthours_per_gid now derived from raw_battery_soh
+  v106 09 Apr 2022  testing in Jodene's 2014 Leaf:
+                    (1) raw_gids glitches 38 to 81
+                    (2) Range is too pessimistic - need to factor in battery SOH
+                    (3) Her SOH 2014 Leaf = 85, my SOH 2011 Leaf = 66
+                    (4) Her WH_PER_GID = ???,   my WH_PER_GID 74.0F
+  v105 06 Apr 2022  adding charge mode gridelines
+  v104 06 Apr 2022  change charging mode x axis to 0 to 50 minutes
+  v103 02 Apr 2022  Fixing Charging mode bug: after fast charge did not reset pionter when driving
+  v102 31 Mar 2022  Fixing bug: Charging mode while driving
+  v101 31 Mar 2022  Fixing bugs in the Charging mode
+  v101 31 Mar 2022  Fixing bugs in the Charging mode
+  v100 30 Mar 2022  starting to work on Charging mode feature
+  v88  25 Mar 2022  replacing range_error with range + journey_odo on x axis
+  v87  24 Mar 2022  tweaked the range error UI
+  v86  23 Mar 2022  tweaked some colours
+  v86  20 Mar 2022  optimizing code to fit into the Micro. It works!
+  v85  19 Mar 2022  tidying upv85  19 Mar 2022  tidying up
   v84  18 Mar 2022  passing variables to functions more
   v83  17 Mar 2022  fiddling with colours
   v82  13 Mar 2022  fixed the "initial range after charge" bug!
