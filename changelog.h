@@ -143,11 +143,9 @@ on "CANa Display for Nissan LEAF"  https://ev-olution.yolasite.com/CANa.php
   V03
   cleaning out the old EV-CAN stuff
 
-  V01
+  V01 (based off Leaf SOC project code)
   Starting to play with the Car-CAN instead of the EV-CAN
 
 ##################################################################################
-DEFINITIONS
-
  
 */
