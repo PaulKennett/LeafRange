@@ -43,6 +43,7 @@ This range estimate is not very sophisticated. It doesn't know about terrain, we
 11. Main motherboard PCB for a Pro Micro or Pro Mini Arduino (Gerber file provided above - you could use https://jlcpcb.com/ to make them)
 12. Level shifter PCB (Gerber file provided above - you could use https://jlcpcb.com/ to make them)
 13. OBD2 plug (like this https://www.aliexpress.com/item/32865761651.html)
+14. 70CM 10P IDC Flat Ribbon DATA Cable 2.54mm (https://www.aliexpress.com/item/32891063802.html)
 
 
 
