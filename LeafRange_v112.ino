@@ -31,7 +31,6 @@
   v87  24 Mar 2022  tweaked the range error UI
   v86  23 Mar 2022  tweaked some colours
   v86  20 Mar 2022  optimizing code to fit into the Micro. It works!
-  v85  19 Mar 2022  tidying up
 */
 
 #define NAME    "LeafRange"
