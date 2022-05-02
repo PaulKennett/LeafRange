@@ -40,14 +40,13 @@ This range estimate is not very sophisticated. It doesn't know about terrain, we
 4. TXS0108E 8 Channel Logic Level Shifter (https://www.aliexpress.com/item/4001131536726.html)
 5. 10 Position Flat Flex Cable Assembly Receptacle to Solder Tab 4.00" (101.60mm) https://www.digikey.co.nz/product-detail/en/te-connectivity-amp-connectors/A9AAT-1004F/A9AAT-1004F-ND/137494
 6. 5V to 3.3V DC-DC Step-Down Power Supply module (https://www.aliexpress.com/item/4001039310587.html)
-7. 10P IDC Flat Ribbon DATA Cable 2.54mm Connector (https://www.aliexpress.com/item/32891063802.html)
+7. 70CM 10P IDC Flat Ribbon DATA Cable 2.54mm (https://www.aliexpress.com/item/32891063802.html)
 8. Male DC3 10 Pin 2x5Pin Right Angle Double Row Pitch 2.54mm (https://www.aliexpress.com/item/32945804425.html)
 9. 3D printed frame for the display (https://www.myminifactory.com/object/3d-print-nissan-leaf-range-graph-display-154555)
 10. 3D printed project box DRAFT (https://www.tinkercad.com/things/lRlt66oEZCM-leafrange-box-v16 - I'll provide a better link soon}
 11. Main motherboard PCB for a Pro Micro or Pro Mini Arduino (Gerber file provided above - you could use https://jlcpcb.com/ to make them)
 12. Level shifter PCB (Gerber file provided above - you could use https://jlcpcb.com/ to make them)
 13. OBD2 plug (like this https://www.aliexpress.com/item/32865761651.html)
-14. 70CM 10P IDC Flat Ribbon DATA Cable 2.54mm (https://www.aliexpress.com/item/32891063802.html)
 
 
 
