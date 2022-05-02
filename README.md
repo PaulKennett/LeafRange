@@ -47,7 +47,7 @@ This range estimate is not very sophisticated. It doesn't know about terrain, we
 11. Main motherboard PCB for a Pro Micro or Pro Mini Arduino (Gerber file provided above - you could use https://jlcpcb.com/ to make them)
 12. Level shifter PCB (Gerber file provided above - you could use https://jlcpcb.com/ to make them)
 13. OBD2 plug (like this https://www.aliexpress.com/item/32865761651.html)
-
+14. 97% Mini DC-DC 15V 12V 9V 7.4V to 5V 4A Step-down Power Module https://www.aliexpress.com/item/4001313603033.html
 
 
 ## Todo
