@@ -44,8 +44,8 @@ This range estimate is not very sophisticated. It doesn't know about terrain, we
 8. Male DC3 10 Pin 2x5Pin Right Angle Double Row Pitch 2.54mm (https://www.aliexpress.com/item/32945804425.html)
 9. 3D printed frame for the display (https://www.myminifactory.com/object/3d-print-nissan-leaf-range-graph-display-154555)
 10. 3D printed project box DRAFT (https://www.tinkercad.com/things/lRlt66oEZCM-leafrange-box-v16 - I'll provide a better link soon}
-11. Main motherboard PCB for a Pro Micro or Pro Mini Arduino (Gerber file provided above - you could use https://jlcpcb.com/ to make them)
-12. Level shifter PCB (Gerber file provided above - you could use https://jlcpcb.com/ to make them)
+11. PBC motherboard for a Pro Micro or Pro Mini Arduino (Gerber file provided above or https://oshwlab.com/paulkennett/LeafRange-for-Micro)
+12. PCB for level shifter module (Gerber file provided above - you could use https://jlcpcb.com/ to make them)
 13. OBD2 plug (like this https://www.aliexpress.com/item/32865761651.html)
 14. 97% Mini DC-DC 15V 12V 9V 7.4V to 5V 4A Step-down Power Module https://www.aliexpress.com/item/4001313603033.html
 
