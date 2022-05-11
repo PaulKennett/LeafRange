@@ -49,6 +49,14 @@ This range estimate is not very sophisticated. It doesn't know about terrain, we
 13. OBD2 plug (like this https://www.aliexpress.com/item/32865761651.html)
 14. 97% Mini DC-DC 15V 12V 9V 7.4V to 5V 4A Step-down Power Module https://www.aliexpress.com/item/4001313603033.html
 
+## Relation to the LeafSOC project
+
+The LeafRange project started out as a fork of the LeafSOC project (with a larger 3.3V TFT display to replace the 5V OLED display). So the LeafRange motherboard has been designed to also be used for the LeafSOC project. The on-board jumpers allow you to switch between Car-CAN (for LeafRange) or EV-CAN (for LeafSOC). 
+
+Also: 
+* the latest LeafRange motherboard also has the correct dimensions for the OBD2 plug holes. T
+* the LeafSOC project uses a 5V OLED display so you can leave the 5V-to-3.3V DC-DC converter off  
+
 
 ## Todo
 - see the Wiki Todo page https://github.com/PaulKennett/LeafRange/wiki/Todo
