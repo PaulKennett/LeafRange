@@ -5,7 +5,7 @@ A better range "guess-o-meter" for early Nissan Leaf cars
 
 This project follows on from (and compliments) my earlier [LeafSOCdisplay](https://github.com/PaulKennett/LeafSOCdisplay) project, which grew from [CANa Display for Nissan LEAF](https://ev-olution.yolasite.com/CANa.php) © Copyright EV-OLUTION
 
-The project uses an Ardunio Micro (or Mini Pro, or Mega2650) with a 160x128 pixel TFT display and a MCP2515 CAN-bus module. The display is mounted in a 3D printed frame that fits *inside* the main dash unit and covers the old range estimate (ie., the "guess-o-meter") with a less-wrong range based on battery capacity and temperature.
+The project uses an Ardunio Micro (or Mini Pro, or Mega2650) with a 160x128 pixel TFT display and a MCP2515 CAN-bus module to passively listen to the Car-CAN data bus and use the info to provide a more rational range estimate. The display is mounted in a 3D printed frame that fits *inside* the main dash unit and covers the old range estimate (ie., the "guess-o-meter") with a better range estimate based on battery capacity and temperature. There's also an optional frame that allows the display to be mounted in the corner of the dash, so you can see both the standard Guess-O-Meter and my range estimate.
 
 YouTube drive demo: https://www.youtube.com/watch?v=xt2o3SWRRq8
 
@@ -13,7 +13,8 @@ YouTube hardware show & tell: https://www.youtube.com/watch?v=k4QYvayp_lU
 
 ## Features
 
-* a better range estimate in large freindly numerals (this estimate is not stupidly optomistic at the start of the drive)
+* better range estimate in large friendly numerals (this estimate is not stupidly optomistic at the start of the drive)
+* range estimate does not disappear when the battery dips below 20% (to be replaced by the flashing ---). You get an accurate range estimate down to 0 km. However; there's no buffer below that - so you can't drive another 10 km on "empty" like in a petrol car.
 * range chart that shows how well the estiimate matches reality (stores jouurney data in EEPROM over multiple drives)
 * shows battery pack temperature in Centigrate (more understandable than the temp "bars") when the battery is cold or hot
 * auto-starts a journey odo (multiple trips on a single charge)
