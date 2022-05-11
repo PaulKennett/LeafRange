@@ -50,7 +50,7 @@ This range estimate is not very sophisticated. It doesn't know about terrain, we
 13. OBD2 plug (like this https://www.aliexpress.com/item/32865761651.html)
 14. 97% Mini DC-DC 15V 12V 9V 7.4V to 5V 4A Step-down Power Module https://www.aliexpress.com/item/4001313603033.html
 
-[Parts list](https://docs.google.com/spreadsheets/d/e/2PACX-1vS2Nyihl8SLagP5YnfhvbngJ51losEeNEex3Urd8iOHfg4pMDlcg-ZONYQ7dYSHcnsXQ2ahFD6JTfKS/pubhtml?gid=487315142&single=true) with NZ and US prices
+[Parts list](https://docs.google.com/spreadsheets/d/e/2PACX-1vS2Nyihl8SLagP5YnfhvbngJ51losEeNEex3Urd8iOHfg4pMDlcg-ZONYQ7dYSHcnsXQ2ahFD6JTfKS/pubhtml?gid=487315142&single=true) with NZ and US prices (as at 11 May 2022)
 
 ## Relation to the LeafSOC project
 
