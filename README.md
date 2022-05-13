@@ -13,7 +13,8 @@ YouTube hardware show & tell: https://www.youtube.com/watch?v=k4QYvayp_lU
 
 ## Features
 
-* better range estimate in large friendly numerals (this estimate is not stupidly optomistic at the start of the drive)
+* range estimate is in large friendly numerals (this estimate is not stupidly optomistic at the start of the drive)
+* range estimate is not stupidly optimistic at the start of your journey (which usually when you most want it to be rational). You won't see the range estimate drop 10 km after driving the first 1km like the built-in Guess-O-Meter does.
 * range estimate does not disappear when the battery dips below 20% (to be replaced by the flashing ---). You get an accurate range estimate down to 0 km. However; there's no buffer below that - so you can't drive another 10 km on "empty" like in a petrol car.
 * range chart that shows how well the estiimate matches reality (stores jouurney data in EEPROM over multiple drives)
 * shows battery pack temperature in Centigrate (more understandable than the temp "bars") when the battery is cold or hot
@@ -31,7 +32,7 @@ On the other hand - if you see that you're driving _above_ the initial estimate 
 
 ### Limitations
 
-This range estimate is not very sophisticated. It doesn't know about terrain, weather, driving conditions, car weight, etc. The key benefits are; (a) it's not stupidly optomistic at the start of a drive, and (b) the range chart allows you to easily adjust your driving behaviour to achieve a desired range.
+This range estimate is not very sophisticated. It doesn't know about terrain, weather, driving conditions, car weight, etc. The key benefits are; (a) it's not stupidly optimistic at the start of a drive, and (b) the range chart allows you to easily adjust your driving behaviour to achieve a desired range.
 
 ## Hardware
 
