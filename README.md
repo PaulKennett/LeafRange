@@ -31,9 +31,9 @@ On the other hand - if you see that you're driving _above_ the initial estimate 
 
 ### Limitations
 
-This range estimate is not very sophisticated. It doesn't know about terrain, weather, driving conditions, car weight, etc. The key benefits are; (a) it's not stupidly optimistic at the start of a drive, and (b) the range chart allows you to easily adjust your driving behaviour to achieve a desired range.
+THe range formula is simple; it's only factors are battery capacity, battery SOH and batter temperature. It doesn't know about terrain, weather, driving conditions, car weight, etc. The key benefits are; (a) it's not stupidly optimistic at the start of a drive, (b) it doesn't stop working at the bottom end, and (c) the chart allows you to adjust your driving behaviour to achieve a desired range. All those things improve your confidence and reduce range anxiety.
 
-The raw_Gids variable is stored as a single byte so can't got above 255. (A brand new 24 kWh Leaf has about 281 Gids when full.)
+The raw_Gids variable is stored as a single byte so can't go above 255. A brand new 24 kWh Leaf has about 281 Gids when full. This puts an upper bound on the range it can deal with of about 130 km (about 160 km on the GOM).
 
 ## Hardware
 
