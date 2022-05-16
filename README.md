@@ -33,6 +33,8 @@ On the other hand - if you see that you're driving _above_ the initial estimate 
 
 This range estimate is not very sophisticated. It doesn't know about terrain, weather, driving conditions, car weight, etc. The key benefits are; (a) it's not stupidly optimistic at the start of a drive, and (b) the range chart allows you to easily adjust your driving behaviour to achieve a desired range.
 
+The raw_Gids variable is stored as a single byte so can't got above 255. (A brand new 24 kWh Leaf has about 281 Gids when full.)
+
 ## Hardware
 
 1. Arduino Micro, Mini Pro, or Mega2560 (use a Mega2560 for development, use a Micro or Mini Pro for use in the car as it boots up much faster and uses less power)
