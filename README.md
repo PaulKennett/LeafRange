@@ -54,7 +54,7 @@ The raw_Gids variable is stored as a single byte so can't go above 255. A brand 
 
 [Parts list](https://docs.google.com/spreadsheets/d/e/2PACX-1vS2Nyihl8SLagP5YnfhvbngJ51losEeNEex3Urd8iOHfg4pMDlcg-ZONYQ7dYSHcnsXQ2ahFD6JTfKS/pubhtml?gid=487315142&single=true) with indicative NZ$ and US$ prices (as at 11 May 2022)
 
-Note: Version 117 of the Arduino code fills 99% of program memory on a Micro board, 85% on a Por Mini board and 11% on a Mega 2560 board. 
+Note: LeafRange_v117.ino fills 99% of program memory on a Micro board, 85% on a Por Mini board and 11% on a Mega 2560 board. If I come up with any new fetures ideas I'll need to drop using the Micro board and foxcus on the Pro Mini.
 
 ## Relation to the LeafSOC project
 
